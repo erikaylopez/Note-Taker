@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const PORT = 3000;
+const PORT = 3001;
 
 app.use(express.urlencoded({ extended: true })); // parse incoming string or array data
 app.use(express.json()); // parse incoming JSON data
