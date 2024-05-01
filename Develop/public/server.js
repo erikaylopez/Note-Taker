@@ -1,19 +1,17 @@
 const express = require('express'); // import express module
-const app = express();
-const fs = require('fs'); // node.js file system module
-const database = require('./Develop/db/db.json'); // import reviews from db.json
-
+const routes = require('./Routes'); // import routes
 const PORT = process.env.PORT || 3001; // port number
+
+const app = express();
+
+
+app.use(express.json()); // parse incoming JSON data
+app.use(express.urlencoded({ extended: true })); // parse incoming string or array data
+
 
 app.use(express.static('public')); // serve static files
 
-
-app.use(express.urlencoded({ extended: true })); // parse incoming string or array data
-app.use(express.json()); // parse incoming JSON data
-
-
-app.use('/api', apiRoutes); // use api routes
-app.use('/', htmlRoutes); // use html routes
+app.use(routes); // use routes
 
 
 app.listen(PORT, () => { // start server
