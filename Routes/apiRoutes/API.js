@@ -1,16 +1,14 @@
-const fs = require('fs'); // node.js file system module
-
-const notes = require('../Develop/db/db.json'); // import reviews from db.json
 const express = require('express'); // import express module
 const router = require('express').Router(); // import express router
+const notes = require('../../Develop/db/db.json'); // import reviews from db.json
+const fs = require('fs'); // node.js file system module
 const path = require('path'); // import path module
 
-const port = 3001; // port number
 
-app.use(express.json()); // parse incoming JSON data
+router.use(express.json()); // parse incoming JSON data
 
 
-app.post('/api/notes', (req, res) => { // post reviews
+router.post('/api/notes', (req, res) => { // post reviews
     const newNote = req.body; // new review
     newNote.id = uniqid(); // add unique id to review
     
@@ -19,7 +17,7 @@ app.post('/api/notes', (req, res) => { // post reviews
     res.json(newNote); // return new review
 });
 
-app.get('/api/notes', (req, res) => { // get reviews
+router.get('/api/notes', (req, res) => { // get reviews
     res.json(reviews); // return reviews
 
 });
