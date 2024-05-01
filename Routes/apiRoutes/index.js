@@ -8,7 +8,7 @@ const path = require('path'); // import path module
 router.use(express.json()); // parse incoming JSON data
 
 
-router.post('/api/notes', (req, res) => { // post reviews
+router.post('/notes', (req, res) => { // post reviews
     const newNote = req.body; // new review
     newNote.id = uniqid(); // add unique id to review
     
@@ -17,7 +17,7 @@ router.post('/api/notes', (req, res) => { // post reviews
     res.json(newNote); // return new review
 });
 
-router.get('/api/notes', (req, res) => { // get reviews
+router.get('/notes', (req, res) => { // get reviews
     res.json(reviews); // return reviews
 
 });
