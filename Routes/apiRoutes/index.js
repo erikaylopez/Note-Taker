@@ -22,10 +22,13 @@ router.get('/notes', (req, res) => { // get reviews
 
 });
 
-fs.writeFile(__dirname + '/db/db.json', rawData, err => { // write reviews to db.json
-    if (err) throw err; // throw error if error
-    console.log('File written');
-});
+fs.writeFile(path.join(__dirname, '../../Develop/db/db.json'), JSON.stringify(notes), (err) => {
+    if (err) throw err;
+    return console.log('The file has been saved!');
+
+    console.log(successful);
+  });
+
 
 module.exports = router; // export router
 
