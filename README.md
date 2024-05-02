@@ -30,3 +30,4 @@ Licensed under the MIT license. Copyright @ MIT. All rights reserved.
 
 # Screenshot
 
+![Screenshot](./Assets/note-taker-3.png)
