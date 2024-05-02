@@ -2,7 +2,8 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
+const apiRoutes = require('./routes/apiRoute');
+const htmlRoutes = require('./routes/htmlRoute');
 // port
 const PORT = process.env.PORT || 3001;
 
@@ -14,10 +15,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware for static files
 app.use(express.static('public'));
-
-// Require the routes for api and html
-const apiRoutes = require('../routes/apiRoute');
-const htmlRoutes = require('../routes/htmlRoute');
 
 // Use the routes
 app.use('/api', apiRoutes);

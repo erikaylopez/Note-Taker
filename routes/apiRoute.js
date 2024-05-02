@@ -1,7 +1,7 @@
 //dependencies
 const router = require('express').Router();
 const fs = require('fs');
-const uuid = require('.helpers/uuid');
+const uuid = require('../Helpers/uuid');
 
 // Handle GET of existing notes, to populate on page
 router.get('/notes', function (req, res) {
@@ -14,11 +14,14 @@ router.get('/notes', function (req, res) {
 
 // Handle the POST of new notes when user clicks save
 router.post('/notes', function (req, res) {
+    console.log("WE ARE IN THE POST ROUTE");
     const userNotes = req.body;
 
-    fs.readFile('./db./db.json', (err, data) => {
+    fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
-        dbData = JSON.parse(data);
+ 
+        console.log("INSIDE TE READ FILE METHOD")
+        let dbData = JSON.parse(data);
         dbData.push(userNotes);
         dbData.forEach((note, index) => {
             note.id = uuid();
@@ -26,10 +29,12 @@ router.post('/notes', function (req, res) {
         });
         console.log(dbData);
 
-        stringData = JSON.stringify(dbData);
-
+       letstringData = JSON.stringify(dbData);
+        console.log("READY TO WRITE TO FILE");
         fs.writeFile('./db/db.json', stringData, (err, data) => {
             if (err) throw err;
+            console.log("FILE WRITTEN");
+            res.send(dbData);
         });
     });
     res.send('Note Added');
