@@ -8,7 +8,7 @@ router.get('/notes', function (req, res) {
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
         let dbData = JSON.parse(data);
-        res.send(dbData);
+        res.json(dbData);
     });
 });
 
@@ -34,7 +34,7 @@ router.post('/notes', function (req, res) {
         fs.writeFile('./db/db.json', stringData, (err, data) => {
             if (err) throw err;
             console.log("FILE WRITTEN");
-            res.send(dbData);
+            res.json(dbData);
         });
     });
     res.send('Note Added');
