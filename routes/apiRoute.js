@@ -27,17 +27,17 @@ router.post('/notes', function (req, res) {
             note.id = uuid();
             return dbData;
         });
-        console.log(dbData);
+       
 
        let stringData = JSON.stringify(dbData);
         console.log("READY TO WRITE TO FILE");
         fs.writeFile('./db/db.json', stringData, (err, data) => {
             if (err) throw err;
             console.log("FILE WRITTEN");
-            res.json(dbData);
+            res.send("Note added to database")
         });
     });
-    res.send('Note Added');
+ 
 });
 
 
