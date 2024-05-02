@@ -1,7 +1,7 @@
 //dependencies
 const router = require('express').Router();
 const fs = require('fs');
-const uuid = require('./helpers/uuid');
+const uuid = require('.helpers/uuid');
 
 // Handle GET of existing notes, to populate on page
 router.get('/notes', function (req, res) {

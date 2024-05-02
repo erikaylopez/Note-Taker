@@ -1,7 +1,7 @@
 # Note-Taker
 
 # Description 📝
-This app has been created with the focus of a business owner who would like to write and save notes applicable to their business. This Express application was created using Node and Render dependencies.
+This app has been created with the focus of a business owner who would like to write and save notes applicable to their business. This Express.js application was created using Node and Render dependencies.
 
 # Table of Contents 📚
 

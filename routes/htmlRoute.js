@@ -6,12 +6,12 @@ const routes = require('express').Router();
 
 // GET Route for feedback page
 routes.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '.Develop/public/notes.html'))
+  res.sendFile(path.join(__dirname, './public/notes.html'))
 );
 
 // GET Route for all 
 routes.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, './public/index.html'))
+  res.sendFile(path.join(__dirname, './index.html'))
 );
 
 // Export results
