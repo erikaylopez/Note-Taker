@@ -7,7 +7,7 @@ const uuid = require('../Helpers/uuid');
 router.get('/notes', function (req, res) {
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
-        dbData = JSON.parse(data);
+        let dbData = JSON.parse(data);
         res.send(dbData);
     });
 });
@@ -29,7 +29,7 @@ router.post('/notes', function (req, res) {
         });
         console.log(dbData);
 
-       letstringData = JSON.stringify(dbData);
+       let stringData = JSON.stringify(dbData);
         console.log("READY TO WRITE TO FILE");
         fs.writeFile('./db/db.json', stringData, (err, data) => {
             if (err) throw err;
