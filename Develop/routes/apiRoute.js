@@ -1,13 +1,9 @@
-// Set Router to be a router for express.js
+//dependencies
 const router = require('express').Router();
-
-// Require fs, File System, functionality to be able to access the db.json file and adjust it based on coding
 const fs = require('fs');
-
-// Require the uuid functionality, which builds a unique user id we can add to the note
 const uuid = require('./helpers/uuid');
 
-// Hanlde Get of existing notes, to populate on page
+// Handle GET of existing notes, to populate on page
 router.get('/notes', function (req, res) {
     fs.readFile('./db/db.json', (err, data) => {
         if (err) throw err;
@@ -16,7 +12,7 @@ router.get('/notes', function (req, res) {
     });
 });
 
-// Handle the Post of new notes when user clicks save
+// Handle the POST of new notes when user clicks save
 router.post('/notes', function (req, res) {
     const userNotes = req.body;
 
@@ -40,7 +36,7 @@ router.post('/notes', function (req, res) {
 });
 
 
-// Handle the Delete of notes when user clicks delete
+// Handle the DELETE of notes when user clicks delete
 router.delete('/notes/:id', function (req, res) {
 
     // Get the id of the note to delete

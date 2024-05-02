@@ -1,18 +1,18 @@
-// Purpose: HTML Routes for the application
+//dependencies
 const path = require('path');
 
-// Require express.js
-const router = require('express').Router();
+//express.js
+const routes = require('express').Router();
 
-// GET Route for /notes
-router.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '../public/notes.html'))
+// GET Route for feedback page
+routes.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '.Develop/public/notes.html'))
 );
 
-// GET Route for all other pages
-router.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '../public/index.html'))
+// GET Route for all 
+routes.get('*', (req, res) =>
+  res.sendFile(path.join(__dirname, './public/index.html'))
 );
 
-// Export 
-module.exports = router;
+// Export results
+module.exports = routes;
